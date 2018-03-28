@@ -1,5 +1,7 @@
 package com.jerry.springbootskill.controller;
 
+import com.jerry.springbootskill.util.ResultVOUtil;
+import com.jerry.springbootskill.vo.ResultVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,10 +26,10 @@ public class ErrorController {
 
     @RequestMapping("/getAjaxError")
     @ResponseBody
-    public String getAjaxError() {
+    public ResultVO getAjaxError() {
 
         int a = 1 / 0;
 
-        return "ok";
+        return ResultVOUtil.success();
     }
 }
