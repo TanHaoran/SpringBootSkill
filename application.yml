@@ -1,4 +1,16 @@
 spring:
+  datasource:
+    url: jdbc:mysql://36.41.187.107:3306/spring_boot_skill
+    username: root
+    password: Ywm@mysql36
+  driver-class-name: com.mysql.jdbc.Driver
+  druid:
+    initial-size: 1
+    min-idle: 1
+    max-active: 20
+    test-on-borrow: true
+    stat-view-servlet.allow: true
+
   mvc:
     # 设定静态文件路径
     static-path-pattern: /static/**
@@ -29,6 +41,21 @@ spring:
     encoding: UTF-8
     content-type: text/html
     cache: false
+
+mybatis:
+  type-aliases-package: com.jerry.springbootskill.domain
+  mapper-locations: classpath:mapper/*.xml
+
+mapper:
+  mappers: com.jerry.springbootskill.util.MyMapper
+  not-empty: false
+  identity: MYSQL
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
 
 
 
