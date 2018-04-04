@@ -42,6 +42,19 @@ spring:
     content-type: text/html
     cache: false
 
+  redis:
+    # 这里决定使用哪个库，最大是15
+    database: 1
+    host: 36.41.187.107
+    port: 6379
+    password:
+    pool:
+      max-active: 1000
+      max-wait: -1
+      max-idle: 10
+      min-idle: 2
+    timeout: 0
+
 mybatis:
   type-aliases-package: com.jerry.springbootskill.domain
   mapper-locations: classpath:mapper/*.xml
