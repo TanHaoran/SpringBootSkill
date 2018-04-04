@@ -4,6 +4,10 @@ import com.jerry.springbootskill.domain.SysUser;
 import com.jerry.springbootskill.util.MyMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
-public interface SysUserMapper extends MyMapper<SysUser> {
+public interface SysUserMapperCustom extends MyMapper<SysUser> {
+
+    List<SysUser> queryUserSimplyInfoById(String id);
 }

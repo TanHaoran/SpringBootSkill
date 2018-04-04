@@ -1,5 +1,6 @@
 package com.jerry.springbootskill.service;
 
+import com.github.pagehelper.PageInfo;
 import com.jerry.springbootskill.domain.SysUser;
 
 import java.util.List;
@@ -22,4 +23,10 @@ public interface SysUserService {
     SysUser queryUserById(String id);
 
     List<SysUser> queryUserList(SysUser sysUser);
+
+    PageInfo<SysUser> queryUserListPaged(SysUser user, Integer page, Integer pageSize);
+
+    SysUser queryUserByIdCustom(String id);
+
+    void saveUserTransactional(SysUser user);
 }

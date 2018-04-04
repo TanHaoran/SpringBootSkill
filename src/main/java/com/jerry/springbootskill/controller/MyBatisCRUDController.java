@@ -82,4 +82,36 @@ public class MyBatisCRUDController {
 
         return ResultVOUtil.success(userList);
     }
+
+    @RequestMapping("/queryUserListPaged")
+    public ResultVO queryUserListPaged(Integer page) {
+        if (page == null) {
+            page = 1;
+        }
+
+        int pageSize = 10;
+
+        SysUser user = new SysUser();
+
+        return ResultVOUtil.success(userService.queryUserListPaged(user, page, pageSize));
+    }
+
+    @RequestMapping("/queryUserByIdCustom")
+    public ResultVO queryUserByIdCustom() {
+        return ResultVOUtil.success(userService.queryUserByIdCustom(ID));
+    }
+
+    @RequestMapping("/saveUserTransactional")
+    public ResultVO saveUserTransactional() {
+
+        SysUser sysUser = new SysUser();
+        sysUser.setId(KeyUtil.genUniqueKey());
+        sysUser.setUsername("username " + new Date());
+        sysUser.setPassword("password " + new Date());
+        sysUser.setIsDelete(0);
+        sysUser.setRegisterTime(new Date());
+
+        userService.saveUserTransactional(sysUser);
+        return ResultVOUtil.success();
+    }
 }
